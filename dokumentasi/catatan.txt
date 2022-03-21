@@ -74,10 +74,6 @@ CARA BUAT BACKEND
 7. Jalankan app.js dengan npm start
 8. Cek di browser pada localhost:port		
 
-toko games :
-- pembeli games
-- produk games
-
 install back-end :
 - nodemon
 - express
@@ -91,7 +87,6 @@ cara buat backend :
 - npm init -y
 - packge.json muncul
 - npm i express body-parser mysql cors
-
 
 user case
 pendaftaran/profile
