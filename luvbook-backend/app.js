@@ -1,11 +1,12 @@
 'use strict';
 
 /**
+ * dotenv init
  * Express Init
  * Setting Port
  * Cors Init
  * Dotenv Init
- * Body Parser
+ * Body Parser / Express Parsing (form parsing)
  */
 
 // Initialization dotenv
@@ -27,6 +28,12 @@ let originOptionCors = {
 };
 
 app.use(cors(originOptionCors));
+
+// parse requests of content-type - application/json
+app.use(express.json());
+
+// parse requests of content-type - application/x-www-form-urlencoded
+app.use(express.urlencoded({ extended: true }));
 
 // Routing
 
