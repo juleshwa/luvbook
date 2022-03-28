@@ -69,6 +69,31 @@ class BookController {
       }
     });
   }
+
+  static UpdateBook(req, res) {
+    let payload = req.body;
+    payload.book_price = +req.body.book_price;
+    payload.book_stock = +req.body.book_stock;
+
+    // Check if any empty value
+
+    for (const each in payload) {
+      if (!payload[each]) {
+        payload[each] = null;
+      }
+    }
+    console.log(payload, 'ini adalah payload');
+
+    let id = req.params.id;
+
+    Book.updateBookById(id, payload, (err, data) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.json(data);
+      }
+    });
+  }
 }
 
 module.exports = {

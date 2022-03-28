@@ -135,6 +135,22 @@ class Book {
       }
     });
   }
+
+  static updateBookById(id, data, result) {
+    let date = new Date();
+    let updatePayload = data;
+    updatePayload.updated_at = date;
+    let sqlQuery = `UPDATE books SET book_label = ?, book_title = ?, book_author = ?, book_genre = ?, book_publisher = ?, book_isbn = ?, book_year = ?, book_price = ?, book_stock = ?, updated_at = ? WHERE id = ${id}`;
+
+    sql.query(sqlQuery, updatePayload, (err, res) => {
+      if (err) {
+        console.log('update error', err);
+        result(err, null);
+      } else {
+        result(null, res);
+      }
+    });
+  }
 }
 
 module.exports = {
