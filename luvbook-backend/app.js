@@ -27,7 +27,14 @@ let originOptionCors = {
   origin: `http://localhost:${port}`,
 };
 
-app.use(cors(originOptionCors));
+app.use(
+  cors({
+    origin: '*',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
+  })
+);
 
 // parse requests of content-type - application/json
 app.use(express.json());
